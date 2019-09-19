@@ -8,8 +8,8 @@ function Main() {
 
 
     async function getList() {
-        const list = axios.get('http://localhost:3333/musics')
-        console.log(list)
+        const list = await axios.get('http://localhost:3333/musics')
+        console.log(list.data)
     }
 
     return (
