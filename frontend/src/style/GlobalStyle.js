@@ -15,10 +15,10 @@ export default createGlobalStyle`
     }
 
     body {
-        font-family: 'Righteous', cursive;
+        font-family: 'Righteous', cursive !important;
         font-size: 14px;
         background-color: #f7f7f7;
-        color: #fff;
+        color: #333;
         -webkit-font-smoothing: antialiased !important;
     }
 

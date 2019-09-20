@@ -7,6 +7,8 @@ export const Container = styled.div`
     background-color: #434041;
 
     h1 {
+        font-family: 'Righteous', cursive !important;
         font-size: 34px;
+        color: #f7f7f7;
     }
 `;
