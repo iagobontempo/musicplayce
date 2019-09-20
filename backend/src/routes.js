@@ -10,5 +10,6 @@ routes.get('/', (req, res) => {
 routes.get('/musics', MusicController.index)
 routes.post('/add', MusicController.store);
 routes.delete('/delete/:id', MusicController.remove);
+routes.put('/edit/:id', MusicController.edit);
 
 module.exports = routes
