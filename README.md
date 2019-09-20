@@ -1,7 +1,7 @@
 # Projeto Desafio - MusicPlayce
 > Autor: Iago Bontempo
 
-![demo]()
+![demo](https://github.com/iagobontempo/musicplayce/blob/master/demo.gif)
 
 # Escolhas
 ## Backend
