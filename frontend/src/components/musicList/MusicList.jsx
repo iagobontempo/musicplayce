@@ -22,15 +22,15 @@ function MusicList() {
     }
 
     async function add() {
-        await axios.post('http://localhost:3333/add', { music: input }).then(setReload(!reload))
+        await axios.post('http://localhost:3333/add', { music: input }).then(() => setReload(!reload))
     }
 
     async function remove(id) {
-        await axios.delete(`http://localhost:3333/delete/${id}`).then(setReload(!reload))
+        await axios.delete(`http://localhost:3333/delete/${id}`).then(() => setReload(!reload))
     }
 
     async function edit(id, music) {
-        await axios.put(`http://localhost:3333/edit/${id}`, { NewMusic: music }).then(setReload(!reload))
+        await axios.put(`http://localhost:3333/edit/${id}`, { NewMusic: music }).then(() => setReload(!reload))
     }
 
     function handleSubmit(e) {
