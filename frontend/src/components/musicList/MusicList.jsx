@@ -3,8 +3,8 @@ import axios from 'axios'
 import MusicListItem from './MusicListItem'
 import useInputState from '../../hooks/useInputState'
 
-import { Container } from './styles'
-import { Input } from 'semantic-ui-react'
+import { Container, Wrapper } from './styles'
+import { Input, Divider, Icon } from 'semantic-ui-react'
 
 
 function MusicList() {
@@ -22,33 +22,37 @@ function MusicList() {
     }
 
     async function add() {
-        await axios.post('http://localhost:3333/add', { music: input })
+        await axios.post('http://localhost:3333/add', { music: input }).then(setReload(!reload))
     }
 
     async function remove(id) {
-        await axios.delete(`http://localhost:3333/delete/${id}`)
+        await axios.delete(`http://localhost:3333/delete/${id}`).then(setReload(!reload))
     }
 
     function handleSubmit(e) {
         e.preventDefault()
-        add().then(setReload(!reload))
+        add()
         resetInput()
     }
 
     return (
         <Container>
-            <div>
-                Lista
-                {list && list.map(l => (
-                    <MusicListItem key={l._id} id={l._id} music={l.music} />
-                ))}
-            </div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <Input action='Adicionar' placeholder='Digite uma musica para adicionar'
-                        value={input} onChange={handleChange} required />
-                </form>
-            </div>
+            <Wrapper>
+                <section>
+                    {list && list.map(l => (
+                        <MusicListItem key={l._id} id={l._id} music={l.music} remove={() => remove(l._id)} />
+                    ))}
+                </section>
+                <Divider style={{ width: 291 }} horizontal fluid>
+                    <Icon name='plus' />
+                </Divider>
+                <div style={{ paddingTop: '10px' }}>
+                    <form onSubmit={handleSubmit}>
+                        <Input action='Adicionar' placeholder='Adicione uma musica...'
+                            value={input} onChange={handleChange} required />
+                    </form>
+                </div>
+            </Wrapper>
         </Container>
     )
 }
