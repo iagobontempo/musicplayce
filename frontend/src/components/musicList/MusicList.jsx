@@ -29,6 +29,10 @@ function MusicList() {
         await axios.delete(`http://localhost:3333/delete/${id}`).then(setReload(!reload))
     }
 
+    async function edit(id, music) {
+        await axios.put(`http://localhost:3333/edit/${id}`, { NewMusic: music }).then(setReload(!reload))
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
         add()
@@ -40,10 +44,12 @@ function MusicList() {
             <Wrapper>
                 <section>
                     {list && list.map(l => (
-                        <MusicListItem key={l._id} id={l._id} music={l.music} remove={() => remove(l._id)} />
+                        <MusicListItem key={l._id} id={l._id} music={l.music}
+                            remove={() => remove(l._id)}
+                            edit={edit} />
                     ))}
                 </section>
-                <Divider style={{ width: 291 }} horizontal fluid>
+                <Divider style={{ width: 291 }} horizontal>
                     <Icon name='plus' />
                 </Divider>
                 <div style={{ paddingTop: '10px' }}>
