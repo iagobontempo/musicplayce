@@ -2,6 +2,7 @@
 > Autor: Iago Bontempo
 
 ![demo](https://github.com/iagobontempo/musicplayce/blob/master/demo.gif)
+> Para visualizar o gif com melhor qualidade clique sobre ele. Ou vá para [demo.gif](demo.gif)
 
 # Escolhas
 ## Backend
